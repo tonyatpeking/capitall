@@ -1,8 +1,7 @@
-from transformers import pipeline
+from transformers import AutoProcessor, AutoModelForImageTextToText
 
-#pipe = pipeline("image-text-to-text", model="HuggingFaceTB/SmolVLM2-2.2B-Instruct", device="cuda")
-pipe = pipeline("image-text-to-text", model="HuggingFaceTB/SmolVLM-256M-Instruct")
-
+processor = AutoProcessor.from_pretrained("HuggingFaceTB/SmolVLM2-256M-Video-Instruct")
+model = AutoModelForImageTextToText.from_pretrained("HuggingFaceTB/SmolVLM2-256M-Video-Instruct")
 messages = [
     {
         "role": "user",
@@ -12,4 +11,13 @@ messages = [
         ]
     },
 ]
-print(pipe(text=messages))
+inputs = processor.apply_chat_template(
+	messages,
+	add_generation_prompt=True,
+	tokenize=True,
+	return_dict=True,
+	return_tensors="pt",
+).to(model.device)
+
+outputs = model.generate(**inputs, max_new_tokens=40)
+print(processor.decode(outputs[0][inputs["input_ids"].shape[-1]:]))
