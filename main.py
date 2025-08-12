@@ -1,7 +1,11 @@
+# Load model directly
 from transformers import AutoProcessor, AutoModelForImageTextToText
 
-processor = AutoProcessor.from_pretrained("HuggingFaceTB/SmolVLM2-256M-Video-Instruct")
-model = AutoModelForImageTextToText.from_pretrained("HuggingFaceTB/SmolVLM2-256M-Video-Instruct")
+processor = AutoProcessor.from_pretrained("HuggingFaceTB/SmolVLM2-2.2B-Instruct")
+model = AutoModelForImageTextToText.from_pretrained("HuggingFaceTB/SmolVLM2-2.2B-Instruct")
+
+print("Using Device: ", model.device)
+
 messages = [
     {
         "role": "user",
