@@ -8,7 +8,7 @@ V1_500M = "HuggingFaceTB/SmolVLM-500M-Instruct"
 V2_256M = "HuggingFaceTB/SmolVLM2-256M-Video-Instruct"
 V2_500M = "HuggingFaceTB/SmolVLM2-500M-Video-Instruct"
 
-MODEL_NAME = V2_500M
+MODEL_NAME = V2_256M
 
 torch.set_default_device("cuda")
 processor = AutoProcessor.from_pretrained(MODEL_NAME)
@@ -38,5 +38,5 @@ inputs = processor.apply_chat_template(
 	return_tensors="pt",
 ).to(model.device)
 
-outputs = model.generate(**inputs, max_new_tokens=40)
+outputs = model.generate(**inputs, max_new_tokens=200)
 print(processor.decode(outputs[0][inputs["input_ids"].shape[-1]:]))
