@@ -2,6 +2,14 @@
 from transformers import AutoProcessor, AutoModelForImageTextToText
 import torch
 
+
+V1_256M = "HuggingFaceTB/SmolVLM2-256M-Video-Instruct"
+V1_500M = "HuggingFaceTB/SmolVLM2-500M-Video-Instruct"
+V2_256M = "HuggingFaceTB/SmolVLM2-256M-Video-Instruct"
+V2_500M = "HuggingFaceTB/SmolVLM2-500M-Video-Instruct"
+
+MODEL_NAME = ""
+
 torch.set_default_device("cuda")
 processor = AutoProcessor.from_pretrained("HuggingFaceTB/SmolVLM2-500M-Video-Instruct")
 model = AutoModelForImageTextToText.from_pretrained("HuggingFaceTB/SmolVLM2-500M-Video-Instruct")
