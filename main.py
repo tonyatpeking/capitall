@@ -2,6 +2,7 @@ from transformers import pipeline
 
 #pipe = pipeline("image-text-to-text", model="HuggingFaceTB/SmolVLM2-2.2B-Instruct", device="cuda")
 pipe = pipeline("image-text-to-text", model="HuggingFaceTB/SmolVLM2-256M-Video-Instruct")
+pipe.save_pretrained(".")
 messages = [
     {
         "role": "user",
