@@ -1,6 +1,8 @@
 # Load model directly
 from transformers import AutoProcessor, AutoModelForImageTextToText
+import torch
 
+torch.set_default_device("cuda")
 #processor = AutoProcessor.from_pretrained("HuggingFaceTB/SmolVLM2-2.2B-Instruct")
 #model = AutoModelForImageTextToText.from_pretrained("HuggingFaceTB/SmolVLM2-2.2B-Instruct")
 
