@@ -8,7 +8,7 @@ V1_500M = "HuggingFaceTB/SmolVLM-500M-Instruct"
 V2_256M = "HuggingFaceTB/SmolVLM2-256M-Video-Instruct"
 V2_500M = "HuggingFaceTB/SmolVLM2-500M-Video-Instruct"
 
-MODEL_NAME = V1_500M
+MODEL_NAME = V2_500M
 
 torch.set_default_device("cuda")
 processor = AutoProcessor.from_pretrained(MODEL_NAME)
