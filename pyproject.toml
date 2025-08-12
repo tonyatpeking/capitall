@@ -9,14 +9,14 @@ description = "Caption it all"
 requires-python = ">=3.12"
 
 dependencies = [
-"torch",
-"torchvision",
-"pillow",
-"numpy",
-"pandas",
-"matplotlib",
-"transformers",
-"num2words",
+  "torch",
+  "torchvision",
+  "pillow",
+  "numpy",
+  "pandas",
+  "matplotlib",
+  "transformers",
+  "num2words",
 ]
 
 [project.optional-dependencies]
@@ -26,8 +26,6 @@ dev = [
 [tool.hatch.build.targets.wheel]
 packages = ["capitall"]
 
-
-
 [tool.uv.sources]
 torch = [
   { index = "pytorch-cu126", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
@@ -35,7 +33,6 @@ torch = [
 torchvision = [
   { index = "pytorch-cu126", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
 ]
-
 
 [[tool.uv.index]]
 name = "pytorch-cu126"
